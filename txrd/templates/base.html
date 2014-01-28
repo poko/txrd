@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}TXRD Web Portal{% endblock %}</title>
+</head>
+<body>
+	<!-- This topbar div would be on every page-->
+    <div id="topbar">
+        <img src="{% static "txrd_logo.jpg" %}" width=352 height=231> 
+        {% block topbar_links %}
+        Other crap that would be on all the pages can go here.
+        <ul>
+            <li><a href="/portal/">Home</a></li>
+            <li><a href="/directory/">Directory</a></li>
+            <li><a href="/logout/">Logout</a></li> <!-- This should be dynamic? -->
+        </ul>
+        {% endblock %}
+    </div>
+    
+	<!-- This content div would be different on every page-->
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

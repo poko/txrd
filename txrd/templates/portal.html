@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+Here we are in the portal. Woohoo.<br/>
+Your username is: {{ user }} </br>
+Your real/skate name is: {{ member_profile.display_name }} </br>
+And your total tenure is {{ member_profile.readableTenure }} </br>
+And your jobs are:<br/>
+<ul>
+{%for job in member_profile.jobs.all %}
+	<li>{{job.title}} in the {{job.division}} Division </li>
+{%endfor%}
+</ul>
+And your points for {{ current_date|date:"M Y" }} are {{ profile_points }} </br>
+<a href="/points/">See all previous points</a>
+{% endblock %}
